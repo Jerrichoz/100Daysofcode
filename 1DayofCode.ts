@@ -1,5 +1,3 @@
-import assert from "assert";
-
 function multTwo(a: number, b: number): number {
     // my code here
     let result: number;
