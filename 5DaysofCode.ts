@@ -11,8 +11,8 @@ function betweenMarkers(line: string, left: string, right: string): string {
     markerLeft = line.indexOf(left);
     markerRight = line.indexOf(right);
     console.log("mleft " + markerLeft + " mRight " + markerRight);
-   
-    for (let index = markerLeft+1; index < markerRight; index++) {
+
+    for (let index = markerLeft + 1; index < markerRight; index++) {
         result = result.concat(line[index]);
     }
     console.log("Result " + result);
@@ -27,8 +27,7 @@ function correctSentence(text: string): string {
 
     text = capitalizeFirstLetter(text);
     console.log("text " + text);
-    if(text[text.length-1] != ".")
-    {
+    if (text[text.length - 1] != ".") {
         text = text.concat(".");
     }
     return text;
@@ -41,18 +40,17 @@ function capitalizeFirstLetter(toCap: string): string {
     console.log("stest " + stringTest + "string " + toCap);
     return toCap;
 }
-  
+
 function isEven(num: number): boolean {
     // your code here
-    if(isOdd(num))
-    {
+    if (isOdd(num)) {
         return false;
     }
     return true;
 }
 
-function isOdd(value: number): boolean{
-    if(value % 2 != 0){
+function isOdd(value: number): boolean {
+    if (value % 2 != 0) {
         console.log("is odd!")
         return true;
     }
@@ -66,6 +64,21 @@ function isOdd(value: number): boolean{
 // The text consists from numbers, spaces and english letters
 function sumNumbers(test: string): number {
     // my code here
-    let resultString = (\ \d+\ )+;
-    return 0;
+    const regex = /(\ \d+\ |\ \d+$|^\d+$)+/gm;
+    let result: number = 0;
+
+    let m: RegExpExecArray;
+
+    while ((m = regex.exec(test)) !== null) {
+        // This is necessary to avoid infinite loops with zero-width matches
+        if (m.index === regex.lastIndex) {
+            regex.lastIndex++;
+        }
+        m.forEach(match => console.log(`match ` + match));
+        result += parseInt(m[0]);
+        
+    }
+    return result;
 }
+//regex https://regex101.com/ (\ \d+\ )+
+
