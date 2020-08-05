@@ -48,18 +48,29 @@ interface Stock {
 
 function biggerPrice(limit: number, data: Stock[]): Stock[] {
     // my code here
-    var sortedObject: object;
-    sortedObject = sortObject(data);
-    console.log("sortedObject");
-    console.log(sortedObject);
-    return [];
+    var sortedObject: Stock[];
+    sortedObject = 
+    // var sortedObject: Stock[];
+    // //sortedObject = sortObject(data);
+    // sortedObject = Object.values(data);
+    // sortedObject.forEach(element => {
+    //     console.log(element);
+    //     console.log("Price " + element.price);
+    // });
 
-    //objectmember deletion
-    // for (var member in myObject) delete myObject[member];
+    return [];
 }
 
-function sortObject(object: object):object
+function sortObject(objectToSort: object):object
 {
+    var sortedObject: Stock[];
+
+    objectToSort = Object.values(objectToSort);
+    sortedObject.forEach(element => {
+        console.log(element);
+        console.log("Price " + element.price);
+    });
+    
     return Object.entries(object).sort((a,b) => b[1]-a[1]).map(el=>el[0]);
     //https://medium.com/@gmcharmy/sort-objects-in-javascript-e-c-how-to-get-sorted-values-from-an-object-142a9ae7157c
 }
