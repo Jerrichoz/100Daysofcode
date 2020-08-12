@@ -1,38 +1,26 @@
 function biggerPrice(limit: number, data: Stock[]): Stock[] {
     // my code here
     var sortedObject: Stock[];
+    console.log(data[0].price);
     sortedObject = Object.entries(data).sort((a,b) => b[3]-a[3]).map(el=>el[0]);
     console.log(sortedObject)
     return [];
 }
 
-function sortObject(objectToSort: Stock[]):Stock[]
-{
-    var sortedObject: Stock[];
-
-    // objectToSort = Object.values(objectToSort);
-    // sortedObject.forEach(element => {
-    //     console.log(element);
-    //     console.log("Price " + element.price);
-    // });
-    
-    return Object.values(objectToSort).sort((a,b) => b[1]-a[1]).map(el=>el[0]);
-    //https://medium.com/@gmcharmy/sort-objects-in-javascript-e-c-how-to-get-sorted-values-from-an-object-142a9ae7157c
-}
-
-
-interface Stock {
-    name: string,
-    price: number,
-};
-
 function biggerPrice(limit: number, data: Stock[]): Stock[] {
     // my code here
-    var sortedObject: string[];
-    sortedObject = Object.entries(data).sort((a,b) => b[1]-a[1]).map(el=>el[0]);
-    console.log(sortedObject)
+    var sortedObject: Stock[];
+    console.log("data 0");
+    console.log(data[0].price);
+    data.sort((a,b) => b.price - a.price);
+    data.filter(element => element[limit]);
+
+    console.log("data sorted");
+    console.log(data)
+    // console.log(data[0].price);
     return [];
 }
+
 
 console.log('Example:')
 console.log(biggerPrice(2, [
@@ -41,3 +29,8 @@ console.log(biggerPrice(2, [
     {"name": "meat", "price": 15},
     {"name": "water", "price": 1}
 ]))
+
+
+[ { name: 'wine', price: 138 }, { name: 'bread', price: 100 } ]
+
+[ { name: 'wine', price: 138 }, { name: 'bread', price: 100 } ]

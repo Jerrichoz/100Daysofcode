@@ -11,3 +11,5 @@ function biggerPrice(limit: number, data: Stock[]): Stock[] {
     // console.log(data[0].price);
     return data;
 }
+
+
